@@ -15,6 +15,14 @@ It’s also a good idea to at least superficially understand the kinematics. The
 
 Given the purpose of this work, I may improve it in the future with more advanced features like a dynamic model instead of a kinematic model or better movement control, but since this is an open project, please do contact me (or use the available GitHub funcionalities) to improve this work so everyone can have an even better experience, specially if it’s a bug fix or a correction in the text of the tutorials.
 
+The "model" folder contains the model of an omnidirectional wheel (38MM DOUBLE PLASTIC OMNI WHEEL) and the model of a robot made out of an abstract body and these wheels for the sake of validation. The models are Gazebo readable: just drop them in Gazebo's default model folder and you'll be able to add them to any Gazebo world through the GUI.
+
+The "plugin" folder contains the source code of the control plugin I developed, and a compiled plugin (I don't know if it works out of the box on other systems) that makes the robot execute some random movements for testing.
+
+The "tutorial" folder contain several tutorials that need to be read so this project can be used. Start with the one called "getting started".
+
+The "world" folder contains a Gazebo world that simply contains the default ground plane and the aforementioned abstract robot model in the center of this world.
+
 References
 
 [1] http://gazebosim.org/tutorials?cat=guided_b&tut=guided_b1
