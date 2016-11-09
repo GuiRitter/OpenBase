@@ -30,23 +30,23 @@ Remember that V1, V2 and V3 are also called, V_left, V_back and V_right, respect
 
 If you need forward kinematics relative to the world's frame, transform the result of the last equations with the following ones:
 
-![world forward kinematics Vx](https://cdn.rawgit.com/GuiRitter/OpenBase/master/images/FW 0.svg)
+![world forward kinematics Vx](https://cdn.rawgit.com/GuiRitter/OpenBase/master/images/FW x.svg)
 
-![world forward kinematics Vy](https://cdn.rawgit.com/GuiRitter/OpenBase/master/images/FW 1.svg)
+![world forward kinematics Vy](https://cdn.rawgit.com/GuiRitter/OpenBase/master/images/FW y.svg)
 
 For the inverse kinematics, you can start with the velocities relative to the robot's frame, or you can convert the velocities relative to the world's frame with the following equations:
 
-![world inverse kinematics Vx](https://cdn.rawgit.com/GuiRitter/OpenBase/master/images/IW 0.svg)
+![world inverse kinematics Vx](https://cdn.rawgit.com/GuiRitter/OpenBase/master/images/IW x.svg)
 
-![world inverse kinematics Vy](https://cdn.rawgit.com/GuiRitter/OpenBase/master/images/IW 1.svg)
+![world inverse kinematics Vy](https://cdn.rawgit.com/GuiRitter/OpenBase/master/images/IW y.svg)
 
 Then, you can use the following equations for the inverse kinematics relative to the robot's frame:
 
-![mobile inverse kinematics Vx](https://cdn.rawgit.com/GuiRitter/OpenBase/master/images/IM 0.svg)
+![mobile inverse kinematics V1](https://cdn.rawgit.com/GuiRitter/OpenBase/master/images/IM 0.svg)
 
-![mobile inverse kinematics Vy](https://cdn.rawgit.com/GuiRitter/OpenBase/master/images/IM 1.svg)
+![mobile inverse kinematics V2](https://cdn.rawgit.com/GuiRitter/OpenBase/master/images/IM 1.svg)
 
-![mobile inverse kinematics omega_p](https://cdn.rawgit.com/GuiRitter/OpenBase/master/images/IM 2.svg)
+![mobile inverse kinematics V3](https://cdn.rawgit.com/GuiRitter/OpenBase/master/images/IM 2.svg)
 
 Given the purpose of this work, I may improve it in the future with more advanced features like a dynamic model instead of a kinematic model or better movement control, but since this is an open project, please do contact me (or use the available GitHub funcionalities) to improve this work so everyone can have an even better experience, specially if it’s a bug fix or a correction in the text of the tutorials.
 
