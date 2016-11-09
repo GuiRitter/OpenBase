@@ -15,7 +15,7 @@ It’s also a good idea to at least superficially understand the kinematics. The
 
 This is an image I created that should contain all necessary geometric constraints to derive the kinematics equations:
 
-![omnidirectional geometry constraints](images/geometry.svg)
+![omnidirectional geometry constraints](https://cdn.rawgit.com/GuiRitter/OpenBase/master/images/geometry.svg)
 
 Given the purpose of this work, I may improve it in the future with more advanced features like a dynamic model instead of a kinematic model or better movement control, but since this is an open project, please do contact me (or use the available GitHub funcionalities) to improve this work so everyone can have an even better experience, specially if it’s a bug fix or a correction in the text of the tutorials.
 
