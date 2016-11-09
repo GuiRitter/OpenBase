@@ -1,4 +1,7 @@
 # OpenBase
+
+![Gazebo GUI with OpenBase robot](images/Gazebo GUI.png)
+
 An omnidirectional mobile platform, with a 3 omnidirectional wheels layout, with two objectives: to facilitate the development of mobile robot control algorithms and to facilitate the development of mobile robots in general by providing a ready to use movement solution.
 
 It is free and open source, licensed with the MIT/Expat license, with the intent of powering the research of robotics anywhere for anyone.
@@ -16,6 +19,34 @@ It’s also a good idea to at least superficially understand the kinematics. The
 This is an image I created that should contain all necessary geometric constraints to derive the kinematics equations:
 
 ![omnidirectional geometry constraints](https://cdn.rawgit.com/GuiRitter/OpenBase/master/images/geometry.svg)
+
+Remember that V1, V2 and V3 are also called, V_left, V_back and V_right, respectively. These are the forward kinematics equations relative to the robot's reference frame:
+
+![mobile forward kinematics Vx](https://cdn.rawgit.com/GuiRitter/OpenBase/master/images/FM 0.svg)
+
+![mobile forward kinematics Vy](https://cdn.rawgit.com/GuiRitter/OpenBase/master/images/FM 1.svg)
+
+![mobile forward kinematics omega_p](https://cdn.rawgit.com/GuiRitter/OpenBase/master/images/FM 2.svg)
+
+If you need forward kinematics relative to the world's frame, transform the result of the last equations with the following ones:
+
+![world forward kinematics Vx](https://cdn.rawgit.com/GuiRitter/OpenBase/master/images/FW 0.svg)
+
+![world forward kinematics Vy](https://cdn.rawgit.com/GuiRitter/OpenBase/master/images/FW 1.svg)
+
+For the inverse kinematics, you can start with the velocities relative to the robot's frame, or you can convert the velocities relative to the world's frame with the following equations:
+
+![world inverse kinematics Vx](https://cdn.rawgit.com/GuiRitter/OpenBase/master/images/IW 0.svg)
+
+![world inverse kinematics Vy](https://cdn.rawgit.com/GuiRitter/OpenBase/master/images/IW 1.svg)
+
+Then, you can use the following equations for the inverse kinematics relative to the robot's frame:
+
+![mobile inverse kinematics Vx](https://cdn.rawgit.com/GuiRitter/OpenBase/master/images/IM 0.svg)
+
+![mobile inverse kinematics Vy](https://cdn.rawgit.com/GuiRitter/OpenBase/master/images/IM 1.svg)
+
+![mobile inverse kinematics omega_p](https://cdn.rawgit.com/GuiRitter/OpenBase/master/images/IM 2.svg)
 
 Given the purpose of this work, I may improve it in the future with more advanced features like a dynamic model instead of a kinematic model or better movement control, but since this is an open project, please do contact me (or use the available GitHub funcionalities) to improve this work so everyone can have an even better experience, specially if it’s a bug fix or a correction in the text of the tutorials.
 
