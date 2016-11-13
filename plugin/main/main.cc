@@ -495,7 +495,10 @@ namespace gazebo {
 
         /**
          * Moves the platform with fixed translation and rotation speeds,
-         * relative to the mobile platform's frame.
+         * relative to the mobile platform's frame. Translates the speeds
+         * from the mobile platform's frame to the world frame
+         * to ensure that the movement will be performed
+         * according to the platform's initial angle.
          *
          * To be executed by the communications module.
          *
@@ -504,6 +507,27 @@ namespace gazebo {
          * @param Vright
          */
         public: void fireMovementDirectMobile(double Vxm, double Vym, double omegap) {
+            VxTarget = (std::cos(theta) * Vxm) - (std::sin(theta) * Vym);
+            VyTarget = (std::cos(theta) * Vym) + (std::sin(theta) * Vxm);
+            omegapTarget = omegap;
+            movement = MOVEMENT_DIRECT_W;
+        }
+
+        /**
+         * Moves the platform with fixed translation and rotation speeds,
+         * relative to the mobile platform's frame. Does not transform
+         * the speeds from the mobile platform's frame to the world frame.
+         * This means that random changes in the platform's angle
+         * will not change it's movement, as the mobile platform's frame
+         * rotates with the platform.
+         *
+         * To be executed by the communications module.
+         *
+         * @param Vleft
+         * @param Vback
+         * @param Vright
+         */
+        public: void fireMovementDirectMobileRaw(double Vxm, double Vym, double omegap) {
             VxTarget = Vxm;
             VyTarget = Vym;
             omegapTarget = omegap;
@@ -657,9 +681,7 @@ namespace gazebo {
 
         // Called by the world update start event
         public: void OnUpdate(const common::UpdateInfo & /*_info*/) {
-
             odometry();
-
             switch (movement) {
                 case MOVEMENT_ABSOLUTE_M:
                     xError = xTarget - xm;
