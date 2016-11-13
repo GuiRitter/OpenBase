@@ -647,7 +647,6 @@ namespace gazebo {
             Vright = this->rightJoint->GetVelocity(0) * r;
             theta = normalizeRadian(model->GetRelativePose().rot.GetYaw()); // simulation theta
             forwardKinematicsWorld();
-            printf("% 2.3lf % 2.3lf % 2.3lf\n", Vxm, Vym, omegap);
             xm += Vxm * timeElapsed;
             ym += Vym * timeElapsed;
             xw += Vxw * timeElapsed;
@@ -660,10 +659,6 @@ namespace gazebo {
         public: void OnUpdate(const common::UpdateInfo & /*_info*/) {
 
             odometry();
-
-            if (world->GetSimTime().Double() > 2) {
-                world->SetPaused(true);
-            }
 
             switch (movement) {
                 case MOVEMENT_ABSOLUTE_M:
