@@ -138,7 +138,8 @@ std::vector<double> angles;
 
 enum Movements {
     MOVEMENT_DIRECT,
-    MOVEMENT_DIRECT_WORLD,
+    MOVEMENT_DIRECT_M,
+    MOVEMENT_DIRECT_W,
     MOVEMENT_NONE,
     MOVEMENT_ABSOLUTE_M,
     MOVEMENT_ABSOLUTE_W,
@@ -503,14 +504,10 @@ namespace gazebo {
          * @param Vright
          */
         public: void fireMovementDirectMobile(double Vxm, double Vym, double omegap) {
-            ::Vxm    = Vxm   ;
-            ::Vym    = Vym   ;
-            ::omegap = omegap;
-            inverseKinematicsMobile();
-            VleftTarget  = Vleft ;
-            VbackTarget  = Vback ;
-            VrightTarget = Vright;
-            movement = MOVEMENT_DIRECT;
+            VxTarget = Vxm;
+            VyTarget = Vym;
+            omegapTarget = omegap;
+            movement = MOVEMENT_DIRECT_M;
         }
 
         /**
@@ -542,7 +539,7 @@ namespace gazebo {
             VxTarget     = Vxw   ;
             VyTarget     = Vyw   ;
             omegapTarget = omegap;
-            movement = MOVEMENT_DIRECT_WORLD;
+            movement = MOVEMENT_DIRECT_W;
         }
 
         /**
@@ -650,6 +647,7 @@ namespace gazebo {
             Vright = this->rightJoint->GetVelocity(0) * r;
             theta = normalizeRadian(model->GetRelativePose().rot.GetYaw()); // simulation theta
             forwardKinematicsWorld();
+            printf("% 2.3lf % 2.3lf % 2.3lf\n", Vxm, Vym, omegap);
             xm += Vxm * timeElapsed;
             ym += Vym * timeElapsed;
             xw += Vxw * timeElapsed;
@@ -662,6 +660,11 @@ namespace gazebo {
         public: void OnUpdate(const common::UpdateInfo & /*_info*/) {
 
             odometry();
+
+            if (world->GetSimTime().Double() > 2) {
+                world->SetPaused(true);
+            }
+
             switch (movement) {
                 case MOVEMENT_ABSOLUTE_M:
                     xError = xTarget - xm;
@@ -734,7 +737,13 @@ namespace gazebo {
                     Vback  = VbackTarget ;
                     Vright = VrightTarget;
                     break;
-                case MOVEMENT_DIRECT_WORLD:
+                case MOVEMENT_DIRECT_M:
+                    Vxm    = VxTarget    ;
+                    Vym    = VyTarget    ;
+                    omegap = omegapTarget;
+                    inverseKinematicsMobile();
+                    break;
+                case MOVEMENT_DIRECT_W:
                     Vxw    = VxTarget    ;
                     Vyw    = VyTarget    ;
                     omegap = omegapTarget;
