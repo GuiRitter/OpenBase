@@ -52,3 +52,4 @@ The robot will follow the curve starting from the first point. How fast it will 
 References
 
 [1] https://en.wikipedia.org/wiki/B%C3%A9zier_curve
+[2] D. F. Rogers and J. A. Adams, Mathematical Elements for Computer Graphics, 2nd ed. New York City: McGraw-Hill, 1990.
