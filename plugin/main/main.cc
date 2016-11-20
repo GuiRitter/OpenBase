@@ -62,8 +62,6 @@ double x = 0;
 double y = 0;
 double xm = 0;
 double ym = 0;
-double xmw = 0;
-double ymw = 0;
 double xOffset = 0;
 double yOffset = 0;
 double xTarget = 0;
@@ -199,6 +197,19 @@ void Bezier() {
     for (Bezier_i = 0; Bezier_i <= Bezier_nR; Bezier_i++) {
         Bezier_pTheta += angles[Bezier_i] * Bezier_B_(Bezier_nR);
     }
+}
+
+/**
+ * Resets the error values used by the PID controller.
+ *
+ * Should be used after a movement command if another one is fired
+ * before or immediately after the previous one
+ * and a continuous movement is not desired.
+ */
+void resetErrors() {
+    xErrorI = 0;
+    yErrorI = 0;
+    thetaErrorI = 0;
 }
 
 /**
@@ -494,11 +505,10 @@ namespace gazebo {
         }
 
         /**
-         * Moves the platform with fixed translation and rotation speeds,
-         * relative to the mobile platform's frame. Translates the speeds
-         * from the mobile platform's frame to the world frame
-         * to ensure that the movement will be performed
-         * according to the platform's initial angle.
+         * Moves the platform with fixed translation and rotation speeds
+         * relative to the mobile platform's frame but translated
+         * to the world's frame. This results in a world's frame movement
+         * rotated according to the initial angle between frames.
          *
          * To be executed by the communications module.
          *
@@ -506,7 +516,7 @@ namespace gazebo {
          * @param Vback
          * @param Vright
          */
-        public: void fireMovementDirectMobile(double Vxm, double Vym, double omegap) {
+        public: void fireMovementDirectHybrid(double Vxm, double Vym, double omegap) {
             VxTarget = (std::cos(theta) * Vxm) - (std::sin(theta) * Vym);
             VyTarget = (std::cos(theta) * Vym) + (std::sin(theta) * Vxm);
             omegapTarget = omegap;
@@ -527,7 +537,7 @@ namespace gazebo {
          * @param Vback
          * @param Vright
          */
-        public: void fireMovementDirectMobileRaw(double Vxm, double Vym, double omegap) {
+        public: void fireMovementDirectMobile(double Vxm, double Vym, double omegap) {
             VxTarget = Vxm;
             VyTarget = Vym;
             omegapTarget = omegap;
