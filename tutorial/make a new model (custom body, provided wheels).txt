@@ -107,7 +107,7 @@ Note down which value is which variable.
 
 40. When everything is ok with the model, build the world as it will be necessary for your simulations, with the model you just built, save this world and close Gazebo.
 40.1. The plugin I developed assumes the robot starts from (x, y, θ) = (0, 0, 0). If, in the world you developed, the robot starts elsewhere, you'll need to edit the source code and alter xw and yw's initial value. Otherwise, you need to place the robot at  (x, y) = (0, 0).
-40.2. Also, there's a distance of 0,01905 m between the wheel's center (also the robot's center if the body is symmetrical) and the point where it touchs the ground. If the robot will start in the Gazebo's default ground plane and the body is symmetrical like the one I provided., then that value must be the robot's "z" in Gazebo.
+40.2. Also, there's a distance of 0,01905 m between the wheel's center (also the robot's center if the body is symmetrical) and the point where it touchs the ground. If the robot will start in the Gazebo's default ground plane and the body is symmetrical like the one I provided, then that value must be the robot's "z" in Gazebo.
 
 41. Open the plugin's source code go to the "Load()" method. Replace the parameters of the "GetJoint()" method calls to the joint names you noted down before. The same lines have the variables that represent each wheel, and I've named them as I named the wheels: left, back and right. Rename these as you need.
 
@@ -117,7 +117,7 @@ Note down which value is which variable.
 
 44. Compile the plugin. If necessary, call some movement methods in the "Load()" method to test the robot before compiling.
 
-45. Open the world SDF file you created earlier with a text editor..
+45. Open the world SDF file you created earlier with a text editor.
 
 46. Search for "<plugin name=" and replace the filename by the path to the "*.so" file generated from the plugin.
 
