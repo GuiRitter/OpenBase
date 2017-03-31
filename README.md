@@ -52,7 +52,7 @@ Given the purpose of this work, I may improve it in the future with more advance
 
 The "model" folder contains the model of an omnidirectional wheel (38MM DOUBLE PLASTIC OMNI WHEEL) and the model of a robot made out of an abstract body and these wheels for the sake of validation. The models are Gazebo readable: just drop them in Gazebo's default model folder and you'll be able to add them to any Gazebo world through the GUI.
 
-The "plugin" folder contains the source code of the control plugin I developed, and a compiled plugin (I don't know if it works out of the box on other systems) that makes the robot execute some random movements for testing.
+The "plugin" folder contains the source code of the control plugin I developed, and a demo plugin that makes the robot execute some random movements for testing. It needs to be compiled because the plugin compiled in a system might not work on another.
 
 The "tutorial" folder contain several tutorials that need to be read so this project can be used. Start with the one called "getting started".
 
