@@ -43,14 +43,14 @@
   5. Repeat these steps if the values still are too small. Remember that, for example, if you initially used **s = 10** and used the same value again, **s** is now **100**.
   6. After getting values with enough precision, divide them by **s<sup>5</sup>**.
   7. Multiply the result by the body's mass. You'll have to either measure it or compute it from the volume (see below) and a desired density.
-  8. Divide them by the volume. You can get the volume from the terminal, after **Mesh Volume is** . Remember that, if you scaled the model, you have to divide the volume by **s^3** before dividing the moment of inertia by the volume.
+  8. Divide them by the volume. You can get the volume from the terminal, after **Mesh Volume is** . Remember that, if you scaled the model, you have to divide the volume by **s<sup>3</sup>** before dividing the moment of inertia by the volume.
 
 17. Every element of the moment of inertia's matrix corresponds to the element in the same position in the following matrix:
-    ````
+    ```
     ixx  ixy  ixz
     ixy  iyy  iyz
     ixz  iyz  izz
-    ````
+    ```
     Note down which value is which variable.
 
 18. Close MeshLab, open it again and import the file again, to reset any changes made to it.
