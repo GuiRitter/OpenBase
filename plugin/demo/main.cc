@@ -711,7 +711,7 @@ namespace gazebo {
                     Vym = (yError * P) + (yErrorI * I);
                     VxAbs = std::abs(Vxm);
                     VyAbs = std::abs(Vym);
-                    if ((VxAbs > 1) || (VyAbs > 1)) {
+                    if ((VxAbs > Vmax) || (VyAbs > Vmax)) {
                         scale = Vmax / ((VxAbs > VyAbs) ? VxAbs : VyAbs);
                         Vxm *= scale;
                         Vym *= scale;
@@ -750,7 +750,7 @@ namespace gazebo {
                     Vyw = (yError * P) + (yErrorI * I);
                     VxAbs = std::abs(Vxw);
                     VyAbs = std::abs(Vyw);
-                    if ((VxAbs > 1) || (VyAbs > 1)) {
+                    if ((VxAbs > Vmax) || (VyAbs > Vmax)) {
                         scale = Vmax / ((VxAbs > VyAbs) ? VxAbs : VyAbs);
                         Vxw *= scale;
                         Vyw *= scale;
