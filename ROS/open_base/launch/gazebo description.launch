@@ -1,5 +1,6 @@
 <launch>
 
+        <include file="$(find open_base)/launch/parameter.launch"/>
         <arg
                 name="debug"
                 default="false"
@@ -48,20 +49,18 @@
                 />
 
         </include>
-        <param
-                name="robot_description"
-                textfile="$(find open_base)/urdf/description.urdf"
-        />
         <node
                 name="open_base_spawner"
                 pkg="gazebo_ros"
                 type="spawn_model"
                 args="-urdf -model robot -param robot_description -model open_base"
+			ns="open_base"
         />
         <node
                 name="joint_state_publisher"
                 pkg="joint_state_publisher"
                 type="joint_state_publisher"
+		ns="open_base"
         >
 
                 <param
@@ -81,6 +80,7 @@
                 type="robot_state_publisher"
                 respawn="false"
                 output="screen"
+				ns="open_base"
         >
 
                 <param

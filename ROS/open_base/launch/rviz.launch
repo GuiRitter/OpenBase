@@ -1,17 +1,11 @@
 <launch>
 
-	<!--param
-		name="robot_description"
-		textfile="$(find open_base)/urdf/description.urdf"
-	/-->
-	<param
-	    name="robot_description"
-	    command="$(find xacro)/xacro '$(find open_base)/xacro/main.urdf.xacro'"
-	/>
+    <include file="$(find open_base)/launch/parameter.launch"/>
 	<node
 		name="joint_state_publisher"
 		pkg="joint_state_publisher"
 		type="joint_state_publisher"
+		ns="open_base"
 	>
 
 		<param
@@ -29,6 +23,7 @@
 		name="robot_state_publisher"
 		pkg="robot_state_publisher"
 		type="state_publisher"
+		ns="open_base"
 	>
 
 		<remap
@@ -43,6 +38,7 @@
 		type="rviz"
 		args="-d $(find open_base)/description.rviz"
 		required="true"
+		ns="open_base"
 	/>
 	<!-- -f origin_link -->
 

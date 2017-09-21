@@ -1,5 +1,9 @@
 <launch>
 
+	<rosparam
+		file="$(find open_base)/config/joint_velocity.yaml"
+		command="load"
+	/>
 	<arg
 		name="paused"
 		default="true"
@@ -20,18 +24,14 @@
 		/>
 
 	</include>
-	<rosparam
-		file="$(find open_base)/config/joint_velocity.yaml"
-		command="load"
-	/>
 	<node
 		name="controller_spawner"
 		pkg="controller_manager"
 		type="spawner"
 		respawn="false"
 		output="screen"
-		ns="/open_base"
 		args="joint_state_controller left_joint_velocity_controller back_joint_velocity_controller right_joint_velocity_controller"
+		ns="/open_base"
 	/>
 	<node
 		name="odometry"

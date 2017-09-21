@@ -84,7 +84,7 @@ int main(int argc, char **argv){
             return -1;
         }
         KDL::Chain chain;
-        if (!tree.getChain("base_link", "back_rim_link", chain)) {
+        if (!tree.getChain("base_link", "rim_back_link", chain)) {
             ROS_ERROR("Failed to get chain from KDL tree.");
             return -1;
         }
