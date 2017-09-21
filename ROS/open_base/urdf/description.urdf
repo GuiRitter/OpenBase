@@ -1,0 +1,1574 @@
+<robot name="open_base">
+
+	<link name="origin_link"/>
+	<link name="base_link">
+
+		<inertial>
+
+			<mass value="0.07862944645"/>
+			<inertia
+				ixx="0.00002035985530754"
+				ixy="0"
+				ixz="0"
+				iyy="0.00002035985530754"
+				iyz="0"
+				izz="0.00003945961663220"
+			/>
+
+		</inertial>
+		<visual>
+
+			<geometry>
+
+				<mesh filename="package://open_base/mesh/base.stl"/>
+
+			</geometry>
+			<material name="base_material">
+
+				<color rgba="1 1 1 1"/>
+
+			</material>
+
+		</visual>
+		<collision>
+
+			<geometry>
+
+				<mesh filename="package://open_base/mesh/base.stl"/>
+
+			</geometry>
+
+		</collision>
+
+	</link>
+	<joint
+		name="origin_joint"
+		type="fixed"
+	>
+
+		<parent link="origin_link"/>
+		<child link="base_link"/>
+		<axis xyz="0 0 1"/>
+		<origin xyz="0 0 0.01905"/>
+
+	</joint>
+	<link name="left_rim_link">
+
+		<inertial>
+
+			<origin xyz="0 0 -0.000343"/>
+			<mass value="0.00835758"/>
+			<inertia
+				ixx="6.63684e-07"
+				ixy="0"
+				ixz="0"
+				iyy="6.63684e-07"
+				iyz="0"
+				izz="9.40333e-07"
+			/>
+
+		</inertial>
+		<visual>
+
+			<geometry>
+
+				<mesh filename="package://open_base/mesh/rim.stl"/>
+
+			</geometry>
+			<material name="left_rim_material">
+
+				<color rgba="0.3 0 0 1"/>
+
+			</material>
+
+		</visual>
+		<collision>
+
+			<geometry>
+
+				<mesh filename="package://open_base/mesh/rim.stl"/>
+
+			</geometry>
+
+		</collision>
+
+	</link>
+	<joint
+		name="left_rim_joint"
+		type="continuous"
+	>
+
+		<parent link="base_link"/>
+		<child link="left_rim_link"/>
+		<axis xyz="0 0 1"/>
+		<origin
+			xyz="-0.03464101615 0.02 0"
+			rpy="1.570796326794896 0 1.047197551196597"
+		/>
+
+	</joint>
+	<link name="left_roller_e_link">
+
+		<inertial>
+
+			<mass value="0.00113845"/>
+			<inertia
+				ixx="2.53776e-08"
+				ixy="0"
+				ixz="0"
+				iyy="2.53776e-08"
+				iyz="0"
+				izz="1.47666e-08"
+			/>
+
+		</inertial>
+		<visual>
+
+			<geometry>
+
+				<mesh filename="package://open_base/mesh/roller.stl"/>
+
+			</geometry>
+			<material name="left_roller_e_material">
+
+				<color rgba="0.03 0.03 0.03 1"/>
+
+			</material>
+
+		</visual>
+		<collision>
+
+			<geometry>
+
+				<mesh filename="package://open_base/mesh/roller.stl"/>
+
+			</geometry>
+
+		</collision>
+
+	</link>
+	<joint
+		name="left_roller_e_joint"
+		type="continuous"
+	>
+
+		<parent link="left_rim_link"/>
+		<child link="left_roller_e_link"/>
+		<axis xyz="0 0 1"/>
+		<origin
+			xyz="0.01355 0 0.0055"
+			rpy="-1.570796326794896 0 0"
+		/>
+
+	</joint>
+	<link name="left_roller_ne_link">
+
+		<inertial>
+
+			<mass value="0.00113845"/>
+			<inertia
+				ixx="2.53776e-08"
+				ixy="0"
+				ixz="0"
+				iyy="2.53776e-08"
+				iyz="0"
+				izz="1.47666e-08"
+			/>
+
+		</inertial>
+		<visual>
+
+			<geometry>
+
+				<mesh filename="package://open_base/mesh/roller.stl"/>
+
+			</geometry>
+			<material name="left_roller_e_material">
+
+				<color rgba="0.03 0.03 0.03 1"/>
+
+			</material>
+
+		</visual>
+		<collision>
+
+			<geometry>
+
+				<mesh filename="package://open_base/mesh/roller.stl"/>
+
+			</geometry>
+
+		</collision>
+
+	</link>
+	<joint
+		name="left_roller_ne_joint"
+		type="continuous"
+	>
+
+		<parent link="left_rim_link"/>
+		<child link="left_roller_ne_link"/>
+		<axis xyz="0 0 1"/>
+		<origin
+			xyz="0.00958129689 0.00958129689 -0.0055"
+			rpy="-1.570796326794896 0 0.7853981633974483"
+		/>
+
+	</joint>
+	<link name="left_roller_n_link">
+
+		<inertial>
+
+			<mass value="0.00113845"/>
+			<inertia
+				ixx="2.53776e-08"
+				ixy="0"
+				ixz="0"
+				iyy="2.53776e-08"
+				iyz="0"
+				izz="1.47666e-08"
+			/>
+
+		</inertial>
+		<visual>
+
+			<geometry>
+
+				<mesh filename="package://open_base/mesh/roller.stl"/>
+
+			</geometry>
+			<material name="left_roller_n_material">
+
+				<color rgba="0.03 0.03 0.03 1"/>
+
+			</material>
+
+		</visual>
+		<collision>
+
+			<geometry>
+
+				<mesh filename="package://open_base/mesh/roller.stl"/>
+
+			</geometry>
+
+		</collision>
+
+	</link>
+	<joint
+		name="left_roller_n_joint"
+		type="continuous"
+	>
+
+		<parent link="left_rim_link"/>
+		<child link="left_roller_n_link"/>
+		<axis xyz="0 0 1"/>
+		<origin
+			xyz="0 0.01355 0.0055"
+			rpy="-1.570796326794896 0 1.570796326794896"
+		/>
+
+	</joint>
+	<link name="left_roller_nw_link">
+
+		<inertial>
+
+			<mass value="0.00113845"/>
+			<inertia
+				ixx="2.53776e-08"
+				ixy="0"
+				ixz="0"
+				iyy="2.53776e-08"
+				iyz="0"
+				izz="1.47666e-08"
+			/>
+
+		</inertial>
+		<visual>
+
+			<geometry>
+
+				<mesh filename="package://open_base/mesh/roller.stl"/>
+
+			</geometry>
+			<material name="left_roller_nw_material">
+
+				<color rgba="0.03 0.03 0.03 1"/>
+
+			</material>
+
+		</visual>
+		<collision>
+
+			<geometry>
+
+				<mesh filename="package://open_base/mesh/roller.stl"/>
+
+			</geometry>
+
+		</collision>
+
+	</link>
+	<joint
+		name="left_roller_nw_joint"
+		type="continuous"
+	>
+
+		<parent link="left_rim_link"/>
+		<child link="left_roller_nw_link"/>
+		<axis xyz="0 0 1"/>
+		<origin
+			xyz="-0.00958129689 0.00958129689 -0.0055"
+			rpy="-1.570796326794896 0 2.356194490192345"
+		/>
+
+	</joint>
+	<link name="left_roller_w_link">
+
+		<inertial>
+
+			<mass value="0.00113845"/>
+			<inertia
+				ixx="2.53776e-08"
+				ixy="0"
+				ixz="0"
+				iyy="2.53776e-08"
+				iyz="0"
+				izz="1.47666e-08"
+			/>
+
+		</inertial>
+		<visual>
+
+			<geometry>
+
+				<mesh filename="package://open_base/mesh/roller.stl"/>
+
+			</geometry>
+			<material name="left_roller_w_material">
+
+				<color rgba="0.03 0.03 0.03 1"/>
+
+			</material>
+
+		</visual>
+		<collision>
+
+			<geometry>
+
+				<mesh filename="package://open_base/mesh/roller.stl"/>
+
+			</geometry>
+
+		</collision>
+
+	</link>
+	<joint
+		name="left_roller_w_joint"
+		type="continuous"
+	>
+
+		<parent link="left_rim_link"/>
+		<child link="left_roller_w_link"/>
+		<axis xyz="0 0 1"/>
+		<origin
+			xyz="-0.01355 0 0.0055"
+			rpy="-1.570796326794896 0 3.141592653589793"
+		/>
+
+	</joint>
+	<link name="left_roller_sw_link">
+
+		<inertial>
+
+			<mass value="0.00113845"/>
+			<inertia
+				ixx="2.53776e-08"
+				ixy="0"
+				ixz="0"
+				iyy="2.53776e-08"
+				iyz="0"
+				izz="1.47666e-08"
+			/>
+
+		</inertial>
+		<visual>
+
+			<geometry>
+
+				<mesh filename="package://open_base/mesh/roller.stl"/>
+
+			</geometry>
+			<material name="left_roller_sw_material">
+
+				<color rgba="0.03 0.03 0.03 1"/>
+
+			</material>
+
+		</visual>
+		<collision>
+
+			<geometry>
+
+				<mesh filename="package://open_base/mesh/roller.stl"/>
+
+			</geometry>
+
+		</collision>
+
+	</link>
+	<joint
+		name="left_roller_sw_joint"
+		type="continuous"
+	>
+
+		<parent link="left_rim_link"/>
+		<child link="left_roller_sw_link"/>
+		<axis xyz="0 0 1"/>
+		<origin
+			xyz="-0.00958129689 -0.00958129689 -0.0055"
+			rpy="-1.570796326794896 0 -2.356194490192345"
+		/>
+
+	</joint>
+	<link name="left_roller_s_link">
+
+		<inertial>
+
+			<mass value="0.00113845"/>
+			<inertia
+				ixx="2.53776e-08"
+				ixy="0"
+				ixz="0"
+				iyy="2.53776e-08"
+				iyz="0"
+				izz="1.47666e-08"
+			/>
+
+		</inertial>
+		<visual>
+
+			<geometry>
+
+				<mesh filename="package://open_base/mesh/roller.stl"/>
+
+			</geometry>
+			<material name="left_roller_s_material">
+
+				<color rgba="0.03 0.03 0.03 1"/>
+
+			</material>
+
+		</visual>
+		<collision>
+
+			<geometry>
+
+				<mesh filename="package://open_base/mesh/roller.stl"/>
+
+			</geometry>
+
+		</collision>
+
+	</link>
+	<joint
+		name="left_roller_s_joint"
+		type="continuous"
+	>
+
+		<parent link="left_rim_link"/>
+		<child link="left_roller_s_link"/>
+		<axis xyz="0 0 1"/>
+		<origin
+			xyz="0 -0.01355 0.0055"
+			rpy="-1.570796326794896 0 -1.570796326794896"
+		/>
+
+	</joint>
+	<link name="left_roller_se_link">
+
+		<inertial>
+
+			<mass value="0.00113845"/>
+			<inertia
+				ixx="2.53776e-08"
+				ixy="0"
+				ixz="0"
+				iyy="2.53776e-08"
+				iyz="0"
+				izz="1.47666e-08"
+			/>
+
+		</inertial>
+		<visual>
+
+			<geometry>
+
+				<mesh filename="package://open_base/mesh/roller.stl"/>
+
+			</geometry>
+			<material name="left_roller_se_material">
+
+				<color rgba="0.03 0.03 0.03 1"/>
+
+			</material>
+
+		</visual>
+		<collision>
+
+			<geometry>
+
+				<mesh filename="package://open_base/mesh/roller.stl"/>
+
+			</geometry>
+
+		</collision>
+
+	</link>
+	<joint
+		name="left_roller_se_joint"
+		type="continuous"
+	>
+
+		<parent link="left_rim_link"/>
+		<child link="left_roller_se_link"/>
+		<axis xyz="0 0 1"/>
+		<origin
+			xyz="0.00958129689 -0.00958129689 -0.0055"
+			rpy="-1.570796326794896 0 -0.7853981633974483"
+		/>
+
+	</joint>
+	<link name="back_rim_link">
+
+		<inertial>
+
+			<origin xyz="0 0 -0.000343"/>
+			<mass value="0.00835758"/>
+			<inertia
+				ixx="6.63684e-07"
+				ixy="0"
+				ixz="0"
+				iyy="6.63684e-07"
+				iyz="0"
+				izz="9.40333e-07"
+			/>
+
+		</inertial>
+		<visual>
+
+			<geometry>
+
+				<mesh filename="package://open_base/mesh/rim.stl"/>
+
+			</geometry>
+			<material name="back_rim_material">
+
+				<color rgba="0 0.3 0 1"/>
+
+			</material>
+
+		</visual>
+		<collision>
+
+			<geometry>
+
+				<mesh filename="package://open_base/mesh/rim.stl"/>
+
+			</geometry>
+
+		</collision>
+
+	</link>
+	<joint
+		name="back_rim_joint"
+		type="continuous"
+	>
+
+		<parent link="base_link"/>
+		<child link="back_rim_link"/>
+		<axis xyz="0 0 1"/>
+		<origin
+			xyz="0 -0.04 0"
+			rpy="1.570796326794896 0 3.141592653589793"
+		/>
+
+	</joint>
+	<link name="back_roller_e_link">
+
+		<inertial>
+
+			<mass value="0.00113845"/>
+			<inertia
+				ixx="2.53776e-08"
+				ixy="0"
+				ixz="0"
+				iyy="2.53776e-08"
+				iyz="0"
+				izz="1.47666e-08"
+			/>
+
+		</inertial>
+		<visual>
+
+			<geometry>
+
+				<mesh filename="package://open_base/mesh/roller.stl"/>
+
+			</geometry>
+			<material name="back_roller_e_material">
+
+				<color rgba="0.03 0.03 0.03 1"/>
+
+			</material>
+
+		</visual>
+		<collision>
+
+			<geometry>
+
+				<mesh filename="package://open_base/mesh/roller.stl"/>
+
+			</geometry>
+
+		</collision>
+
+	</link>
+	<joint
+		name="back_roller_e_joint"
+		type="continuous"
+	>
+
+		<parent link="back_rim_link"/>
+		<child link="back_roller_e_link"/>
+		<axis xyz="0 0 1"/>
+		<origin
+			xyz="0.01355 0 0.0055"
+			rpy="-1.570796326794896 0 0"
+		/>
+
+	</joint>
+	<link name="back_roller_ne_link">
+
+		<inertial>
+
+			<mass value="0.00113845"/>
+			<inertia
+				ixx="2.53776e-08"
+				ixy="0"
+				ixz="0"
+				iyy="2.53776e-08"
+				iyz="0"
+				izz="1.47666e-08"
+			/>
+
+		</inertial>
+		<visual>
+
+			<geometry>
+
+				<mesh filename="package://open_base/mesh/roller.stl"/>
+
+			</geometry>
+			<material name="back_roller_e_material">
+
+				<color rgba="0.03 0.03 0.03 1"/>
+
+			</material>
+
+		</visual>
+		<collision>
+
+			<geometry>
+
+				<mesh filename="package://open_base/mesh/roller.stl"/>
+
+			</geometry>
+
+		</collision>
+
+	</link>
+	<joint
+		name="back_roller_ne_joint"
+		type="continuous"
+	>
+
+		<parent link="back_rim_link"/>
+		<child link="back_roller_ne_link"/>
+		<axis xyz="0 0 1"/>
+		<origin
+			xyz="0.00958129689 0.00958129689 -0.0055"
+			rpy="-1.570796326794896 0 0.7853981633974483"
+		/>
+
+	</joint>
+	<link name="back_roller_n_link">
+
+		<inertial>
+
+			<mass value="0.00113845"/>
+			<inertia
+				ixx="2.53776e-08"
+				ixy="0"
+				ixz="0"
+				iyy="2.53776e-08"
+				iyz="0"
+				izz="1.47666e-08"
+			/>
+
+		</inertial>
+		<visual>
+
+			<geometry>
+
+				<mesh filename="package://open_base/mesh/roller.stl"/>
+
+			</geometry>
+			<material name="back_roller_n_material">
+
+				<color rgba="0.03 0.03 0.03 1"/>
+
+			</material>
+
+		</visual>
+		<collision>
+
+			<geometry>
+
+				<mesh filename="package://open_base/mesh/roller.stl"/>
+
+			</geometry>
+
+		</collision>
+
+	</link>
+	<joint
+		name="back_roller_n_joint"
+		type="continuous"
+	>
+
+		<parent link="back_rim_link"/>
+		<child link="back_roller_n_link"/>
+		<axis xyz="0 0 1"/>
+		<origin
+			xyz="0 0.01355 0.0055"
+			rpy="-1.570796326794896 0 1.570796326794896"
+		/>
+
+	</joint>
+	<link name="back_roller_nw_link">
+
+		<inertial>
+
+			<mass value="0.00113845"/>
+			<inertia
+				ixx="2.53776e-08"
+				ixy="0"
+				ixz="0"
+				iyy="2.53776e-08"
+				iyz="0"
+				izz="1.47666e-08"
+			/>
+
+		</inertial>
+		<visual>
+
+			<geometry>
+
+				<mesh filename="package://open_base/mesh/roller.stl"/>
+
+			</geometry>
+			<material name="back_roller_nw_material">
+
+				<color rgba="0.03 0.03 0.03 1"/>
+
+			</material>
+
+		</visual>
+		<collision>
+
+			<geometry>
+
+				<mesh filename="package://open_base/mesh/roller.stl"/>
+
+			</geometry>
+
+		</collision>
+
+	</link>
+	<joint
+		name="back_roller_nw_joint"
+		type="continuous"
+	>
+
+		<parent link="back_rim_link"/>
+		<child link="back_roller_nw_link"/>
+		<axis xyz="0 0 1"/>
+		<origin
+			xyz="-0.00958129689 0.00958129689 -0.0055"
+			rpy="-1.570796326794896 0 2.356194490192345"
+		/>
+
+	</joint>
+	<link name="back_roller_w_link">
+
+		<inertial>
+
+			<mass value="0.00113845"/>
+			<inertia
+				ixx="2.53776e-08"
+				ixy="0"
+				ixz="0"
+				iyy="2.53776e-08"
+				iyz="0"
+				izz="1.47666e-08"
+			/>
+
+		</inertial>
+		<visual>
+
+			<geometry>
+
+				<mesh filename="package://open_base/mesh/roller.stl"/>
+
+			</geometry>
+			<material name="back_roller_w_material">
+
+				<color rgba="0.03 0.03 0.03 1"/>
+
+			</material>
+
+		</visual>
+		<collision>
+
+			<geometry>
+
+				<mesh filename="package://open_base/mesh/roller.stl"/>
+
+			</geometry>
+
+		</collision>
+
+	</link>
+	<joint
+		name="back_roller_w_joint"
+		type="continuous"
+	>
+
+		<parent link="back_rim_link"/>
+		<child link="back_roller_w_link"/>
+		<axis xyz="0 0 1"/>
+		<origin
+			xyz="-0.01355 0 0.0055"
+			rpy="-1.570796326794896 0 3.141592653589793"
+		/>
+
+	</joint>
+	<link name="back_roller_sw_link">
+
+		<inertial>
+
+			<mass value="0.00113845"/>
+			<inertia
+				ixx="2.53776e-08"
+				ixy="0"
+				ixz="0"
+				iyy="2.53776e-08"
+				iyz="0"
+				izz="1.47666e-08"
+			/>
+
+		</inertial>
+		<visual>
+
+			<geometry>
+
+				<mesh filename="package://open_base/mesh/roller.stl"/>
+
+			</geometry>
+			<material name="back_roller_sw_material">
+
+				<color rgba="0.03 0.03 0.03 1"/>
+
+			</material>
+
+		</visual>
+		<collision>
+
+			<geometry>
+
+				<mesh filename="package://open_base/mesh/roller.stl"/>
+
+			</geometry>
+
+		</collision>
+
+	</link>
+	<joint
+		name="back_roller_sw_joint"
+		type="continuous"
+	>
+
+		<parent link="back_rim_link"/>
+		<child link="back_roller_sw_link"/>
+		<axis xyz="0 0 1"/>
+		<origin
+			xyz="-0.00958129689 -0.00958129689 -0.0055"
+			rpy="-1.570796326794896 0 -2.356194490192345"
+		/>
+
+	</joint>
+	<link name="back_roller_s_link">
+
+		<inertial>
+
+			<mass value="0.00113845"/>
+			<inertia
+				ixx="2.53776e-08"
+				ixy="0"
+				ixz="0"
+				iyy="2.53776e-08"
+				iyz="0"
+				izz="1.47666e-08"
+			/>
+
+		</inertial>
+		<visual>
+
+			<geometry>
+
+				<mesh filename="package://open_base/mesh/roller.stl"/>
+
+			</geometry>
+			<material name="back_roller_s_material">
+
+				<color rgba="0.03 0.03 0.03 1"/>
+
+			</material>
+
+		</visual>
+		<collision>
+
+			<geometry>
+
+				<mesh filename="package://open_base/mesh/roller.stl"/>
+
+			</geometry>
+
+		</collision>
+
+	</link>
+	<joint
+		name="back_roller_s_joint"
+		type="continuous"
+	>
+
+		<parent link="back_rim_link"/>
+		<child link="back_roller_s_link"/>
+		<axis xyz="0 0 1"/>
+		<origin
+			xyz="0 -0.01355 0.0055"
+			rpy="-1.570796326794896 0 -1.570796326794896"
+		/>
+
+	</joint>
+	<link name="back_roller_se_link">
+
+		<inertial>
+
+			<mass value="0.00113845"/>
+			<inertia
+				ixx="2.53776e-08"
+				ixy="0"
+				ixz="0"
+				iyy="2.53776e-08"
+				iyz="0"
+				izz="1.47666e-08"
+			/>
+
+		</inertial>
+		<visual>
+
+			<geometry>
+
+				<mesh filename="package://open_base/mesh/roller.stl"/>
+
+			</geometry>
+			<material name="back_roller_se_material">
+
+				<color rgba="0.03 0.03 0.03 1"/>
+
+			</material>
+
+		</visual>
+		<collision>
+
+			<geometry>
+
+				<mesh filename="package://open_base/mesh/roller.stl"/>
+
+			</geometry>
+
+		</collision>
+
+	</link>
+	<joint
+		name="back_roller_se_joint"
+		type="continuous"
+	>
+
+		<parent link="back_rim_link"/>
+		<child link="back_roller_se_link"/>
+		<axis xyz="0 0 1"/>
+		<origin
+			xyz="0.00958129689 -0.00958129689 -0.0055"
+			rpy="-1.570796326794896 0 -0.7853981633974483"
+		/>
+
+	</joint>
+	<link name="right_rim_link">
+
+		<inertial>
+
+			<origin xyz="0 0 -0.000343"/>
+			<mass value="0.00835758"/>
+			<inertia
+				ixx="6.63684e-07"
+				ixy="0"
+				ixz="0"
+				iyy="6.63684e-07"
+				iyz="0"
+				izz="9.40333e-07"
+			/>
+
+		</inertial>
+		<visual>
+
+			<geometry>
+
+				<mesh filename="package://open_base/mesh/rim.stl"/>
+
+			</geometry>
+			<material name="right_rim_material">
+
+				<color rgba="0 0 0.3 1"/>
+
+			</material>
+
+		</visual>
+		<collision>
+
+			<geometry>
+
+				<mesh filename="package://open_base/mesh/rim.stl"/>
+
+			</geometry>
+
+		</collision>
+
+	</link>
+	<joint
+		name="right_rim_joint"
+		type="continuous"
+	>
+
+		<parent link="base_link"/>
+		<child link="right_rim_link"/>
+		<axis xyz="0 0 1"/>
+		<origin
+			xyz="0.03464101615 0.02 0"
+			rpy="1.570796326794896 0 -1.047197551196597"
+		/>
+
+	</joint>
+	<link name="right_roller_e_link">
+
+		<inertial>
+
+			<mass value="0.00113845"/>
+			<inertia
+				ixx="2.53776e-08"
+				ixy="0"
+				ixz="0"
+				iyy="2.53776e-08"
+				iyz="0"
+				izz="1.47666e-08"
+			/>
+
+		</inertial>
+		<visual>
+
+			<geometry>
+
+				<mesh filename="package://open_base/mesh/roller.stl"/>
+
+			</geometry>
+			<material name="right_roller_e_material">
+
+				<color rgba="0.03 0.03 0.03 1"/>
+
+			</material>
+
+		</visual>
+		<collision>
+
+			<geometry>
+
+				<mesh filename="package://open_base/mesh/roller.stl"/>
+
+			</geometry>
+
+		</collision>
+
+	</link>
+	<joint
+		name="right_roller_e_joint"
+		type="continuous"
+	>
+
+		<parent link="right_rim_link"/>
+		<child link="right_roller_e_link"/>
+		<axis xyz="0 0 1"/>
+		<origin
+			xyz="0.01355 0 0.0055"
+			rpy="-1.570796326794896 0 0"
+		/>
+
+	</joint>
+	<link name="right_roller_ne_link">
+
+		<inertial>
+
+			<mass value="0.00113845"/>
+			<inertia
+				ixx="2.53776e-08"
+				ixy="0"
+				ixz="0"
+				iyy="2.53776e-08"
+				iyz="0"
+				izz="1.47666e-08"
+			/>
+
+		</inertial>
+		<visual>
+
+			<geometry>
+
+				<mesh filename="package://open_base/mesh/roller.stl"/>
+
+			</geometry>
+			<material name="right_roller_e_material">
+
+				<color rgba="0.03 0.03 0.03 1"/>
+
+			</material>
+
+		</visual>
+		<collision>
+
+			<geometry>
+
+				<mesh filename="package://open_base/mesh/roller.stl"/>
+
+			</geometry>
+
+		</collision>
+
+	</link>
+	<joint
+		name="right_roller_ne_joint"
+		type="continuous"
+	>
+
+		<parent link="right_rim_link"/>
+		<child link="right_roller_ne_link"/>
+		<axis xyz="0 0 1"/>
+		<origin
+			xyz="0.00958129689 0.00958129689 -0.0055"
+			rpy="-1.570796326794896 0 0.7853981633974483"
+		/>
+
+	</joint>
+	<link name="right_roller_n_link">
+
+		<inertial>
+
+			<mass value="0.00113845"/>
+			<inertia
+				ixx="2.53776e-08"
+				ixy="0"
+				ixz="0"
+				iyy="2.53776e-08"
+				iyz="0"
+				izz="1.47666e-08"
+			/>
+
+		</inertial>
+		<visual>
+
+			<geometry>
+
+				<mesh filename="package://open_base/mesh/roller.stl"/>
+
+			</geometry>
+			<material name="right_roller_n_material">
+
+				<color rgba="0.03 0.03 0.03 1"/>
+
+			</material>
+
+		</visual>
+		<collision>
+
+			<geometry>
+
+				<mesh filename="package://open_base/mesh/roller.stl"/>
+
+			</geometry>
+
+		</collision>
+
+	</link>
+	<joint
+		name="right_roller_n_joint"
+		type="continuous"
+	>
+
+		<parent link="right_rim_link"/>
+		<child link="right_roller_n_link"/>
+		<axis xyz="0 0 1"/>
+		<origin
+			xyz="0 0.01355 0.0055"
+			rpy="-1.570796326794896 0 1.570796326794896"
+		/>
+
+	</joint>
+	<link name="right_roller_nw_link">
+
+		<inertial>
+
+			<mass value="0.00113845"/>
+			<inertia
+				ixx="2.53776e-08"
+				ixy="0"
+				ixz="0"
+				iyy="2.53776e-08"
+				iyz="0"
+				izz="1.47666e-08"
+			/>
+
+		</inertial>
+		<visual>
+
+			<geometry>
+
+				<mesh filename="package://open_base/mesh/roller.stl"/>
+
+			</geometry>
+			<material name="right_roller_nw_material">
+
+				<color rgba="0.03 0.03 0.03 1"/>
+
+			</material>
+
+		</visual>
+		<collision>
+
+			<geometry>
+
+				<mesh filename="package://open_base/mesh/roller.stl"/>
+
+			</geometry>
+
+		</collision>
+
+	</link>
+	<joint
+		name="right_roller_nw_joint"
+		type="continuous"
+	>
+
+		<parent link="right_rim_link"/>
+		<child link="right_roller_nw_link"/>
+		<axis xyz="0 0 1"/>
+		<origin
+			xyz="-0.00958129689 0.00958129689 -0.0055"
+			rpy="-1.570796326794896 0 2.356194490192345"
+		/>
+
+	</joint>
+	<link name="right_roller_w_link">
+
+		<inertial>
+
+			<mass value="0.00113845"/>
+			<inertia
+				ixx="2.53776e-08"
+				ixy="0"
+				ixz="0"
+				iyy="2.53776e-08"
+				iyz="0"
+				izz="1.47666e-08"
+			/>
+
+		</inertial>
+		<visual>
+
+			<geometry>
+
+				<mesh filename="package://open_base/mesh/roller.stl"/>
+
+			</geometry>
+			<material name="right_roller_w_material">
+
+				<color rgba="0.03 0.03 0.03 1"/>
+
+			</material>
+
+		</visual>
+		<collision>
+
+			<geometry>
+
+				<mesh filename="package://open_base/mesh/roller.stl"/>
+
+			</geometry>
+
+		</collision>
+
+	</link>
+	<joint
+		name="right_roller_w_joint"
+		type="continuous"
+	>
+
+		<parent link="right_rim_link"/>
+		<child link="right_roller_w_link"/>
+		<axis xyz="0 0 1"/>
+		<origin
+			xyz="-0.01355 0 0.0055"
+			rpy="-1.570796326794896 0 3.141592653589793"
+		/>
+
+	</joint>
+	<link name="right_roller_sw_link">
+
+		<inertial>
+
+			<mass value="0.00113845"/>
+			<inertia
+				ixx="2.53776e-08"
+				ixy="0"
+				ixz="0"
+				iyy="2.53776e-08"
+				iyz="0"
+				izz="1.47666e-08"
+			/>
+
+		</inertial>
+		<visual>
+
+			<geometry>
+
+				<mesh filename="package://open_base/mesh/roller.stl"/>
+
+			</geometry>
+			<material name="right_roller_sw_material">
+
+				<color rgba="0.03 0.03 0.03 1"/>
+
+			</material>
+
+		</visual>
+		<collision>
+
+			<geometry>
+
+				<mesh filename="package://open_base/mesh/roller.stl"/>
+
+			</geometry>
+
+		</collision>
+
+	</link>
+	<joint
+		name="right_roller_sw_joint"
+		type="continuous"
+	>
+
+		<parent link="right_rim_link"/>
+		<child link="right_roller_sw_link"/>
+		<axis xyz="0 0 1"/>
+		<origin
+			xyz="-0.00958129689 -0.00958129689 -0.0055"
+			rpy="-1.570796326794896 0 -2.356194490192345"
+		/>
+
+	</joint>
+	<link name="right_roller_s_link">
+
+		<inertial>
+
+			<mass value="0.00113845"/>
+			<inertia
+				ixx="2.53776e-08"
+				ixy="0"
+				ixz="0"
+				iyy="2.53776e-08"
+				iyz="0"
+				izz="1.47666e-08"
+			/>
+
+		</inertial>
+		<visual>
+
+			<geometry>
+
+				<mesh filename="package://open_base/mesh/roller.stl"/>
+
+			</geometry>
+			<material name="right_roller_s_material">
+
+				<color rgba="0.03 0.03 0.03 1"/>
+
+			</material>
+
+		</visual>
+		<collision>
+
+			<geometry>
+
+				<mesh filename="package://open_base/mesh/roller.stl"/>
+
+			</geometry>
+
+		</collision>
+
+	</link>
+	<joint
+		name="right_roller_s_joint"
+		type="continuous"
+	>
+
+		<parent link="right_rim_link"/>
+		<child link="right_roller_s_link"/>
+		<axis xyz="0 0 1"/>
+		<origin
+			xyz="0 -0.01355 0.0055"
+			rpy="-1.570796326794896 0 -1.570796326794896"
+		/>
+
+	</joint>
+	<link name="right_roller_se_link">
+
+		<inertial>
+
+			<mass value="0.00113845"/>
+			<inertia
+				ixx="2.53776e-08"
+				ixy="0"
+				ixz="0"
+				iyy="2.53776e-08"
+				iyz="0"
+				izz="1.47666e-08"
+			/>
+
+		</inertial>
+		<visual>
+
+			<geometry>
+
+				<mesh filename="package://open_base/mesh/roller.stl"/>
+
+			</geometry>
+			<material name="right_roller_se_material">
+
+				<color rgba="0.03 0.03 0.03 1"/>
+
+			</material>
+
+		</visual>
+		<collision>
+
+			<geometry>
+
+				<mesh filename="package://open_base/mesh/roller.stl"/>
+
+			</geometry>
+
+		</collision>
+
+	</link>
+	<joint
+		name="right_roller_se_joint"
+		type="continuous"
+	>
+
+		<parent link="right_rim_link"/>
+		<child link="right_roller_se_link"/>
+		<axis xyz="0 0 1"/>
+		<origin
+			xyz="0.00958129689 -0.00958129689 -0.0055"
+			rpy="-1.570796326794896 0 -0.7853981633974483"
+		/>
+
+	</joint>
+	<transmission name="left_transmission">
+
+		<type>transmission_interface/SimpleTransmission</type>
+		<joint name="left_rim_joint">
+
+			<hardwareInterface>EffortJointInterface</hardwareInterface>
+
+		</joint>
+		<actuator name="left_motor">
+
+			<hardwareInterface>EffortJointInterface</hardwareInterface>
+			<mechanicalReduction>1</mechanicalReduction>
+
+		</actuator>
+
+	</transmission>
+	<transmission name="back_transmission">
+
+		<type>transmission_interface/SimpleTransmission</type>
+		<joint name="back_rim_joint">
+
+			<hardwareInterface>EffortJointInterface</hardwareInterface>
+
+		</joint>
+		<actuator name="back_motor">
+
+			<hardwareInterface>EffortJointInterface</hardwareInterface>
+			<mechanicalReduction>1</mechanicalReduction>
+
+		</actuator>
+
+	</transmission>
+	<transmission name="right_transmission">
+
+		<type>transmission_interface/SimpleTransmission</type>
+		<joint name="right_rim_joint">
+
+			<hardwareInterface>EffortJointInterface</hardwareInterface>
+
+		</joint>
+		<actuator name="rim_motor">
+
+			<hardwareInterface>EffortJointInterface</hardwareInterface>
+			<mechanicalReduction>1</mechanicalReduction>
+
+		</actuator>
+
+	</transmission>
+	<gazebo>
+
+		<plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+
+			<robotNamespace>/open_base</robotNamespace>
+
+		</plugin>
+
+	</gazebo>
+
+</robot>

@@ -1,0 +1,49 @@
+<launch>
+
+	<!--param
+		name="robot_description"
+		textfile="$(find open_base)/urdf/description.urdf"
+	/-->
+	<param
+	    name="robot_description"
+	    command="$(find xacro)/xacro '$(find open_base)/xacro/main.urdf.xacro'"
+	/>
+	<node
+		name="joint_state_publisher"
+		pkg="joint_state_publisher"
+		type="joint_state_publisher"
+	>
+
+		<param
+			name="use_gui"
+			type="Boolean"
+			value="true"
+		/>
+		<remap
+			from="/joint_states"
+			to="/open_base/joint_states"
+		/>
+
+	</node>
+	<node
+		name="robot_state_publisher"
+		pkg="robot_state_publisher"
+		type="state_publisher"
+	>
+
+		<remap
+			from="/joint_states"
+			to="/open_base/joint_states"
+		/>
+
+	</node>
+	<node
+		name="rviz"
+		pkg="rviz"
+		type="rviz"
+		args="-d $(find open_base)/description.rviz"
+		required="true"
+	/>
+	<!-- -f origin_link -->
+
+</launch>

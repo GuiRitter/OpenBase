@@ -1,0 +1,66 @@
+<launch>
+
+	<arg
+		name="paused"
+		default="true"
+	/>
+	<arg
+		name="height"
+		default="0"
+	/>
+	<include file="$(find open_base)/launch/gazebo controller.launch">
+
+		<arg
+			name="paused"
+			value="$(arg paused)"
+		/>
+		<arg
+			name="height"
+			value="$(arg height)"
+		/>
+
+	</include>
+	<rosparam
+		file="$(find open_base)/config/joint_velocity.yaml"
+		command="load"
+	/>
+	<node
+		name="controller_spawner"
+		pkg="controller_manager"
+		type="spawner"
+		respawn="false"
+		output="screen"
+		ns="/open_base"
+		args="joint_state_controller left_joint_velocity_controller back_joint_velocity_controller right_joint_velocity_controller"
+	/>
+	<node
+		name="odometry"
+		pkg="open_base"
+		type="open_base_odometry"
+		ns="open_base"
+		output="screen"
+		args="pose_cheat"
+	></node><!-- args="pose_cheat" -->
+	<node
+		name="kinematics"
+		pkg="open_base"
+		type="open_base_kinematics"
+		ns="open_base"
+		output="screen"
+	></node>
+	<node
+		name="encoder"
+		pkg="open_base"
+		type="open_base_sensor_encoder"
+		ns="open_base/sensor"
+		output="screen"
+	></node>
+	<node
+		name="main"
+		pkg="open_base"
+		type="open_base_main"
+		ns="open_base"
+		output="screen"
+	></node>
+
+</launch>

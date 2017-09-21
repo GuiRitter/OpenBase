@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<robot
+	xmlns:xacro="http://www.ros.org/wiki/xacro"
+	name="open_base"
+>
+
+	<xacro:include filename="$(find open_base)/xacro/rim.urdf.xacro"/>
+
+	<link name="origin_link"/>
+	<link name="base_link">
+
+	<inertial>
+
+		<mass value="0.07862944645"/>
+		<inertia
+			ixx="0.00002035985530754"
+			ixy="0"
+			ixz="0"
+			iyy="0.00002035985530754"
+			iyz="0"
+			izz="0.00003945961663220"
+		/>
+
+	</inertial>
+	<visual>
+
+		<geometry>
+
+			<mesh filename="package://open_base/mesh/base.stl"/>
+
+		</geometry>
+		<material name="base_material">
+
+			<color rgba="1 1 1 1"/>
+
+		</material>
+
+	</visual>
+	<collision>
+
+		<geometry>
+
+			<mesh filename="package://open_base/mesh/base.stl"/>
+
+		</geometry>
+
+	</collision>
+
+	</link>
+	<joint
+		name="base_joint"
+		type="fixed"
+	>
+
+		<parent link="origin_link" />
+		<child link="base_link" />
+		<origin
+			xyz="0 0 0.01905"
+		/>
+
+	</joint>
+	<xacro:rim_macro
+		name="left"
+		color="0.3 0 0"
+		xyz="-0.03464101615 0.02 0"
+		rpy="1.570796326794896 0 1.047197551196597"
+	/>
+	<xacro:rim_macro
+		name="back"
+		color="0 0.3 0"
+		xyz="0 -0.04 0"
+		rpy="1.570796326794896 0 3.141592653589793"
+	/>
+	<xacro:rim_macro
+		name="right"
+		color="0 0 0.3"
+		xyz="0.03464101615 0.02 0"
+		rpy="1.570796326794896 0 -1.047197551196597"
+	/>
+	<gazebo>
+
+		<plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+
+			<robotNamespace>/open_base</robotNamespace>
+
+		</plugin>
+
+	</gazebo>
+
+</robot>

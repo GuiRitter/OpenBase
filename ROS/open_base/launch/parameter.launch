@@ -1,0 +1,48 @@
+<launch>
+
+    <param
+        name="open_base/parameter/control/D"
+        value="0.0"
+    /><!-- PID -->
+    <param
+        name="open_base/parameter/control/I"
+        value="0.0005"
+    /><!-- PID -->
+    <param
+        name="open_base/parameter/control/P"
+        value="5.0"
+    /><!-- PID -->
+    <param
+        name="open_base/parameter/initial/x"
+        value="0.0"
+    />
+    <param
+        name="open_base/parameter/initial/y"
+        value="0.0"
+    />
+    <param
+        name="open_base/parameter/initial/theta"
+        value="0.0"
+    />
+    <param
+        name="open_base/parameter/max/omega"
+        value="50.0"
+    /><!-- set by experiments (rad/s) -->
+    <param
+        name="open_base/parameter/max/v"
+        value="1.0"
+    /><!-- set by experiments (m/s) -->
+    <param
+        name="open_base/parameter/stop/angle"
+        value="0.1047197551196597705355242034774843062905347323976457118988037109375"
+    /><!-- pi / 30 -->
+    <param
+        name="open_base/parameter/stop/distance"
+        value="0.001"
+    />
+    <param
+        name="open_base/parameter/wheel/radius"
+        value="0.01905"
+    />
+
+</launch>

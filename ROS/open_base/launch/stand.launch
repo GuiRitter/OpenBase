@@ -1,0 +1,34 @@
+<launch>
+
+    <param name="stand/robot_description" textfile="$(find open_base)/urdf/stand.urdf" />
+    <node
+        name="spawner"
+        pkg="gazebo_ros"
+        type="spawn_model"
+        args="-urdf -model robot -param robot_description -model stand"
+        respawn="false"
+        output="screen"
+        ns="stand"
+    />
+    <node
+        pkg="robot_state_publisher"
+        type="robot_state_publisher"
+        name="robot_state_publisher"
+        respawn="false"
+        output="screen"
+        ns="stand"
+    >
+
+        <param
+            name="publish_frequency"
+            type="double"
+            value="30.0"
+        />
+        <remap
+            from="/joint_states"
+            to="/stand/joint_states"
+        />
+
+    </node>
+
+</launch>

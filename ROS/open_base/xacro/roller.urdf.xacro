@@ -1,0 +1,66 @@
+<?xml version="1.0" ?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+	<xacro:macro
+		name="roller_macro"
+		params="parent name xyz rpy"
+	>
+
+		<link name="roller_${name}_rim_${parent}_link">
+
+			<inertial>
+
+				<mass value="0.00113845"/>
+				<inertia
+					ixx="2.53776e-08"
+					ixy="0"
+					ixz="0"
+					iyy="2.53776e-08"
+					iyz="0"
+					izz="1.47666e-08"
+				/>
+
+			</inertial>
+			<visual>
+
+				<geometry>
+
+					<mesh filename="package://open_base/mesh/roller.stl"/>
+
+				</geometry>
+				<material name="roller_material">
+
+					<color rgba="0.1 0.1 0.1 1"/>
+
+				</material>
+
+			</visual>
+			<collision>
+
+				<geometry>
+
+					<mesh filename="package://open_base/mesh/roller.stl"/>
+
+				</geometry>
+
+			</collision>
+
+		</link>
+		<joint
+			name="roller_${name}_rim_${parent}_joint"
+			type="continuous"
+		>
+
+			<parent link="rim_${parent}_link"/>
+			<child link="roller_${name}_rim_${parent}_link"/>
+			<axis xyz="0 0 1"/>
+			<origin
+				xyz="${xyz}"
+				rpy="${rpy}"
+			/>
+
+		</joint>
+
+	</xacro:macro>
+
+</robot>
