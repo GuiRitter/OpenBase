@@ -1,6 +1,6 @@
 <launch>
 
-    <include file="$(find open_base)/launch/parameter.launch"/>
+	<include file="$(find open_base)/launch/parameter.launch"/>
 	<node
 		name="joint_state_publisher"
 		pkg="joint_state_publisher"

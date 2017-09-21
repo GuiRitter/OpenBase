@@ -5,8 +5,8 @@
 		textfile="$(find open_base)/urdf/description.urdf"
 	/-->
 	<param
-	    name="open_base/robot_description"
-	    command="$(find xacro)/xacro '$(find open_base)/xacro/main.urdf.xacro'"
+		name="open_base/robot_description"
+		command="$(find xacro)/xacro '$(find open_base)/xacro/main.urdf.xacro'"
 	/>
 	<!--param
 		name="open_base/parameter/control/D"
