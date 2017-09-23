@@ -9,7 +9,6 @@
 #include <open_base/KinematicsInverse.h>
 #include <open_base/Movement.h>
 #include <open_base/MovementBezier.h>
-#include <open_base/MovementDirect.h>
 #include <open_base/MovementGeneric.h>
 #include <open_base/Velocity.h>
 
