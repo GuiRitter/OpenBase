@@ -8,11 +8,13 @@ project(open_base)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
+  control_msgs
   controller_interface
   effort_controllers
+  message_generation
   roscpp
   sensor_msgs
-  message_generation)
+  urdf)
 find_package(cmake_modules REQUIRED)
 
 ## System dependencies are found with CMake's conventions
@@ -120,8 +122,8 @@ generate_messages(
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
 #  INCLUDE_DIRS include
-  LIBRARIES open_base
-  CATKIN_DEPENDS roscpp sensor_msgs message_runtime
+  LIBRARIES ${PROJECT_NAME}
+  CATKIN_DEPENDS control_msgs controller_interface message_runtime roscpp sensor_msgs urdf
   DEPENDS Eigen3 orocos_kdl kdl_parser # system_lib
 )
 
@@ -137,9 +139,9 @@ include_directories(include
 )
 
 ## Declare a C++ library
-# add_library(${PROJECT_NAME}
-#   src/${PROJECT_NAME}/open_base.cpp
-# )
+add_library(${PROJECT_NAME}_controller
+  src/custom_controller.cpp
+)
 
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries
@@ -183,6 +185,11 @@ target_link_libraries(
 target_link_libraries(
   ${PROJECT_NAME}_main
   ${catkin_LIBRARIES}
+)
+target_link_libraries(${PROJECT_NAME}_controller
+  ${catkin_LIBRARIES}
+  ${orocos-kdl_LIBRARIES}
+  ${kdl_parser_LIBRARIES}
 )
 
 #############

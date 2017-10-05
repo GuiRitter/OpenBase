@@ -1,0 +1,12 @@
+open_base:
+
+    joint_state_controller:
+        type: joint_state_controller/JointStateController
+        publish_rate: 100
+
+    custom_controller:
+        type: open_base_controller/CustomController
+        joints:
+            - rim_left_joint
+            - rim_back_joint
+            - rim_right_joint

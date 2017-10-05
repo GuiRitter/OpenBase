@@ -1,0 +1,13 @@
+<library path="lib/libopen_base_controller">
+
+	<class
+	    name="open_base_controller/CustomController"
+	    type="open_base_controller::CustomController"
+	    base_class_type="controller_interface::ControllerBase"
+	>
+
+		<description></description>
+
+	</class>
+
+</library>

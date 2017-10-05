@@ -42,6 +42,7 @@
   <buildtool_depend>catkin</buildtool_depend>
 
   <build_depend>cmake_modules</build_depend>
+  <build_depend>control_msgs</build_depend>
   <build_depend>controller_interface</build_depend>
   <build_depend>effort_controllers</build_depend>
   <build_depend>geometry_msgs</build_depend>
@@ -51,7 +52,9 @@
   <build_depend>roscpp</build_depend>
   <build_depend>sensor_msgs</build_depend>
   <build_depend>std_msgs</build_depend>
+  <build_depend>urdf</build_depend>
 
+  <run_depend>control_msgs</run_depend>
   <run_depend>controller_interface</run_depend>
   <run_depend>controller_manager</run_depend>
   <run_depend>effort_controllers</run_depend>
@@ -62,10 +65,12 @@
   <run_depend>roscpp</run_depend>
   <run_depend>sensor_msgs</run_depend>
   <run_depend>std_msgs</run_depend>
+  <run_depend>urdf</run_depend>
 
   <!-- The export tag contains other, unspecified, tags -->
   <export>
     <!-- Other tools can request additional information be placed here -->
+    <controller_interface plugin="${prefix}/open_base_controller_plugin.xml"/>
 
   </export>
 

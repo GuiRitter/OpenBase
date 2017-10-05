@@ -1,0 +1,18 @@
+open_base:
+
+    joint_state_controller:
+        type: joint_state_controller/JointStateController
+        publish_rate: 100
+        ns: /open_base
+
+    left_joint_effort_controller:
+        type: effort_controllers/JointEffortController
+        joint: rim_left_joint
+
+    back_joint_effort_controller:
+        type: effort_controllers/JointEffortController
+        joint: rim_back_joint
+
+    right_joint_effort_controller:
+        type: effort_controllers/JointEffortController
+        joint: rim_right_joint

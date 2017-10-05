@@ -1,0 +1,66 @@
+<launch>
+
+	<rosparam
+		file="$(find open_base)/config/bypass.yaml"
+		command="load"
+	/>
+	<arg
+		name="paused"
+		default="true"
+	/>
+	<arg
+		name="height"
+		default="0"
+	/>
+	<include file="$(find open_base)/launch/gazebo controller.launch">
+
+		<arg
+			name="paused"
+			value="$(arg paused)"
+		/>
+		<arg
+			name="height"
+			value="$(arg height)"
+		/>
+
+	</include>
+	<node
+		name="controller_spawner"
+		pkg="controller_manager"
+		type="spawner"
+		respawn="false"
+		output="screen"
+		args="joint_state_controller left_joint_effort_controller back_joint_effort_controller right_joint_effort_controller"
+		ns="/open_base"
+	/>
+	<node
+		name="odometry"
+		pkg="open_base"
+		type="open_base_odometry"
+		ns="open_base"
+		output="screen"
+		args="pose_cheat"
+	></node><!-- args="pose_cheat" -->
+	<node
+		name="kinematics"
+		pkg="open_base"
+		type="open_base_kinematics"
+		ns="open_base"
+		output="screen"
+	></node>
+	<node
+		name="encoder"
+		pkg="open_base"
+		type="open_base_sensor_encoder"
+		ns="open_base/sensor"
+		output="screen"
+	></node>
+	<node
+		name="main"
+		pkg="open_base"
+		type="open_base_main"
+		ns="open_base"
+		output="screen"
+	></node>
+
+</launch>
