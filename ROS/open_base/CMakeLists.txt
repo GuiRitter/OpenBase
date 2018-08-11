@@ -120,7 +120,7 @@ generate_messages(
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
 #  INCLUDE_DIRS include
-  LIBRARIES open_base
+  LIBRARIES ${PROJECT_NAME}
   CATKIN_DEPENDS roscpp sensor_msgs message_runtime
   DEPENDS Eigen3 orocos_kdl kdl_parser # system_lib
 )
@@ -149,10 +149,6 @@ include_directories(include
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-add_executable(${PROJECT_NAME}_kinematics src/kinematics.cpp)
-add_executable(${PROJECT_NAME}_odometry src/odometry.cpp)
-add_executable(${PROJECT_NAME}_sensor_encoder src/sensor/encoder.cpp)
-add_executable(${PROJECT_NAME}_main src/main.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -165,25 +161,37 @@ add_executable(${PROJECT_NAME}_main src/main.cpp)
 # add_dependencies(${PROJECT_NAME}_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 # Specify libraries to link a library or executable target against
+
+add_executable(${PROJECT_NAME}_kinematics src/kinematics.cpp)
 target_link_libraries(
   ${PROJECT_NAME}_kinematics
   ${catkin_LIBRARIES}
   ${orocos-kdl_LIBRARIES}
   ${kdl_parser_LIBRARIES}
 )
+add_dependencies(${PROJECT_NAME}_kinematics open_base_generate_messages_cpp)
+
+add_executable(${PROJECT_NAME}_odometry src/odometry.cpp)
 target_link_libraries(
   ${PROJECT_NAME}_odometry
   ${catkin_LIBRARIES}
   ${kdl_parser_LIBRARIES}
 )
+add_dependencies(${PROJECT_NAME}_odometry open_base_generate_messages_cpp)
+
+add_executable(${PROJECT_NAME}_sensor_encoder src/sensor/encoder.cpp)
 target_link_libraries(
   ${PROJECT_NAME}_sensor_encoder
   ${catkin_LIBRARIES}
 )
+add_dependencies(${PROJECT_NAME}_sensor_encoder open_base_generate_messages_cpp)
+
+add_executable(${PROJECT_NAME}_main src/main.cpp)
 target_link_libraries(
   ${PROJECT_NAME}_main
   ${catkin_LIBRARIES}
 )
+add_dependencies(${PROJECT_NAME}_main open_base_generate_messages_cpp)
 
 #############
 ## Install ##
