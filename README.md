@@ -85,3 +85,9 @@ Explanation of `Movement.msg`:
 * `bezier`: coming soon.
 
 See [here](https://github.com/GuiRitter/OpenBase/blob/master/tutorial/movement%20commands.md) for more explanation about movements, specially the parts about what I called "hybrid" and "raw". What I called "direct" there I called "generic" here.
+
+---
+
+When I started working with ROS, I also started learning about something else: control theory. Actually, I shouldn't have became an enginner without it, but it's not my fault that I only heard this name a couple of months later... Ranting aside, I've created a branch to make some tests and try to improve the robot's performance, at least to reach a decent level.
+
+It's very experimental, though and, like the rest of the project, will take a good while before I resume work with it.
