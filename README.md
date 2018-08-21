@@ -57,3 +57,31 @@ References
 [4] J. Borenstein et. al., “Sensors for Dead Reckoning”, in “Where am I?” Sensors and Methods for Mobile Robot Positioning, Ann Arbor: Univ. of Michigan, 1998, ch. 1, sec. 1.3.5, pp. 25–26.
 
 [5] J. Gonçalves et. al., “REAL TIME TRACKING OF AN OMNIDIRECTIONAL ROBOT - An Extended Kalman Filter Approach”, in ICINCO 2008, PROCEEDINGS OF THE FIFTH INTERNATIONAL CONFERENCE ON INFORMATICS IN CONTROL, AUTOMATION AND ROBOTICS, ROBOTICS AND AUTOMATION 2, FUNCHAL, MADEIRA, PORTUGAL, MAY 11-15, 2008, Funchal, Madeira, 2008, p.5–10.
+
+## Robot Operating System (ROS)
+
+When I developed this entirely for Gazebo, I only had heard about ROS. Then I started working with it and decided to port this project to ROS. It's usable, but keep in mind it's in a very early development stage. Besides, I stopped working with ROS and higher priority stuff showed up.
+
+I still have great plans for it, and it's supposed to supersede the Gazebo version, but it will take quite a while before I can get back to it.
+
+Before using it, you'll need to install some packages. These are more than you need, but it doesn't hurt to install them all. Replace `<version>` by your ROS version, e.g. `indigo`, `kinetic`, `lunar`, etc.
+
+```
+sudo apt-get install ros-<version>-effort-controllers
+sudo apt-get install ros-<version>-joint-state-controller
+sudo apt-get install ros-<version>-position-controllers
+```
+
+It's been long enough that I forgot how and why I did some of the things that I did but, to get it moving, launch `velocity controller.launch`. Then, after the simulation has been started in Gazebo, you have two options:
+* Write in a terminal `rostopic pub /open_base/command ` then hit `Tab` a few times to autocomplete the message template and fill the values;
+* Edit the `scripts/movement*.sh` files to your needs and run them with `source scripts/movement*.sh`.
+
+Explanation of `Movement.msg`:
+* `movement`: 0 for Bézier curve; 1 for generic movement (see below); 2 for none; 3 for wheel speed.
+* `generic`:
+  * `type`: 0 for absolute position; 1 for relative position; 2 for velocity (linear and angular).
+  * `frame`: 0 for hybrid; 1 for mobile; 2 for raw mobile; 3 for world.
+  * `target`: desired position in `(x, y, θ)` or desired velocity in `(vx, vy, vθ)`.
+* `bezier`: coming soon.
+
+See [here](https://github.com/GuiRitter/OpenBase/blob/master/tutorial/movement%20commands.md) for more explanation about movements, specially the parts about what I called "hybrid" and "raw". What I called "direct" there I called "generic" here.
