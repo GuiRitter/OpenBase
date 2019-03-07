@@ -76,6 +76,8 @@ It's been long enough that I forgot how and why I did some of the things that I 
 * Write in a terminal `rostopic pub /open_base/command ` then hit `Tab` a few times to autocomplete the message template and fill the values;
 * Edit the `scripts/movement*.sh` files to your needs and run them with `source scripts/movement*.sh`.
 
+Or to control the robot using keyboard : [teleop_keyboard_omni3](http://wiki.ros.org/teleop_keyboard_omni3)
+
 Explanation of `Movement.msg`:
 * `movement`: 0 for Bézier curve; 1 for generic movement (see below); 2 for none; 3 for wheel speed.
 * `generic`:
