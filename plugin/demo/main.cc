@@ -676,19 +676,19 @@ namespace gazebo {
 
         private: void odometry() {
             timeLast = timeNow;
-            timeNow = this->world->GetSimTime().Double();
+            timeNow = this->world->SimTime().Double();
             timeElapsed = timeNow - timeLast;
             Vleft  = this-> leftJoint->GetVelocity(0) * r;
             Vback  = this-> backJoint->GetVelocity(0) * r;
             Vright = this->rightJoint->GetVelocity(0) * r;
-            theta = normalizeRadian(model->GetRelativePose().rot.GetYaw()); // simulation theta
+            theta = normalizeRadian(model->RelativePose().Rot().Yaw()); // simulation theta
             forwardKinematicsWorld();
             xm += Vxm * timeElapsed;
             ym += Vym * timeElapsed;
             xw += Vxw * timeElapsed;
-            //xw = model->GetRelativePose().pos.x; // simulation x
+            //xw = model->RelativePose().pos.x; // simulation x
             yw += Vyw * timeElapsed;
-            //yw = model->GetRelativePose().pos.y; // simulation y
+            //yw = model->RelativePose().pos.y; // simulation y
         }
 
         // Called by the world update start event
