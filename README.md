@@ -46,7 +46,11 @@ The "tutorial" folder contain several tutorials that need to be read so this pro
 
 The "world" folder contains a Gazebo world that simply contains the default ground plane and the aforementioned abstract robot model in the center of this world.
 
-References
+## Gazebo version
+
+This project was developed either in Gazebo 7 or 8. Unfortunately, I don't have the system that I used anymore and I don't remember which version was is. Gazebo 9 brought breaking changes in the API and this project has been updated accordingly. A branch called `gazebo7` has been created to contain the version of the project that is compatible with Gazebo 7 (or 8). Now, the `master` branch contains the version of the project that is compatible with the latest version of Gazebo (9 for now). Thanks [tuanngo0898](https://github.com/tuanngo0898) for letting me know!
+
+## References
 
 [1] http://gazebosim.org/tutorials?cat=guided_b&tut=guided_b1
 
